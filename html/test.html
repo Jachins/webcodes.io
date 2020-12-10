@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试专用文件</title>
+    <style>
+        p:first-child {
+            color: red
+        }
+    </style>
+    <link rel="stylesheet" href="css1.css">
+    <link rel="stylesheet" href="css2.css">
+</head>
+
+<body>
+    <style>
+        .main {
+            color: blue
+        }
+        
+        span {
+            color: green
+        }
+    </style>
+    <div style="color:red !important" class="" main "">
+        <span>123</span>
+    </div>
+    <a href="#">有没有跳转尼</a>
+    <div>
+        <p>请输入需要加载的网站：<span id="currentTime"></span></p>
+        <p>
+            <input type="text" id="url" value="https://www.baidu.com/">
+            <input type="button" value="提交" onclick="loadPage()">
+        </p>
+
+    </div>
+    <div>
+        <h3>需要加载的页面：伪Ajax的实现</h3>
+        <iframe style="width: 100%; height: 30%;" id="iframePosition">
+        </iframe>
+    </div>
+
+    <script type="text/javascript">
+        window.onload = function f() {
+            var myDate = new Date();
+            document.getElementById('currentTime').innerText = myDate.getTime();
+        }
+
+        function loadPage() {
+            var targetURL = document.getElementById('url').value;
+            console.log(targetURL);
+            document.getElementById("iframePosition").src = targetURL;
+        }
+    </script>
+    <!-- 
+    <div style="border:1px solid">
+        <span>div span中第一个段落。</span>
+        <p>div 中第一个段落。</p>
+        <p>div 中的最后一个段落。</p>
+    </div><br>
+
+    <div style="border:1px solid">
+        <p>另一个 div 中第一个段落。</p>
+        <p>另一个 div 中的最后一个段落。</p>
+    </div>
+    <script>
+        // 
+        let test1 = ['foo'];
+        let array1 = ['bar'];
+        array1[Symbol.isConcatSpreadable] = false;
+        console.log(test1.concat(array1));
+        // Symbol.isConcatSpreadable==false,所以将整个对象追加到数组末尾；
+
+        let array2 = {
+            lenght: 1,
+            0: 'baz'
+        };
+        console.log(array2[Symbol.isConcatSpreadable]); //undefined;
+        console.log(test1.concat(array2)); //['foo',{...}]
+        array2[Symbol.isConcatSpreadable] = true;
+        console.log(test1.concat(array2)); //['foo','baz']
+
+        class Emitter {
+            constructor(max) {
+                this.max = max;
+                this.idx = 0;
+            } * [Symbol.iterator]() {
+                while (this.idx < this.max) {
+                    yield this.idx++;
+                }
+            }
+        }
+
+        function count() {
+            let emitter = new Emitter(5);
+            for (const x of emitter) {
+                console.log(x);
+            }
+        }
+        count(); //0,1,2,3,4;
+
+        class Bar extends Array {}
+        class Baz extends Array {
+            static get[Symbol.species]() {
+                return Array;
+            }
+        }
+        let bar = new Bar();
+        // let baz = new Baz();
+        console.log(bar instanceof Array); //true;
+        // console.log(bar instanceof Bar); //true;
+
+
+        class Bar1 {
+            constructor() {
+                this[Symbol.toPrimitive] = function(hint) {
+                    switch (hint) {
+                        case 'number':
+                            return 3;
+                        case 'string':
+                            return 'string bar';
+                        case 'default':
+                            return 'default bar';
+                    }
+                }
+            }
+        }
+        let car = new Bar1();
+        console.log(9 + car);
+        console.log(9 - car);
+        console.log(String(car));
+
+        function Person() {
+
+        }
+
+        Person.prototype = {
+            constructor: Person,
+            name: "jachin",
+            age: 29,
+            job: 'softWare Engineer',
+            sayName() {
+                console.log(this.name);
+            }
+        };
+        let friend = new Person();
+        friend.sayName();
+
+        console.log(String(new function() {
+            return new String('foo');
+        }))
+
+        var x = new Boolean(false);
+        if (x) {
+            // alert("hi")
+        }
+        // console.log(x);
+        var y = new Boolean(0);
+        if (y) {
+            // alert('hello');
+        }
+        if (0) {
+            console.log("括号里面有！")
+        } else {
+            console.log("括号里什么都没有")
+        }
+        var arr = [{
+            a: 1
+        }, {}];
+        arr.forEach(function(item, idx) {
+            item.b = idx;
+        });
+        console.log(arr);
+        // (function() {
+
+        //     var x = foo();
+
+        //     var foo = function foo() {
+        //         return "foobar"
+        //     };
+        //     return x;
+        // })();
+        var p1 = {
+            name: '小明',
+            age: '12',
+            action: function(where, doing) {
+                console.log(this.age + '岁的' + this.name + '在' + where + doing);
+            }
+        }
+        var p2 = {
+            name: '小红',
+            age: '15'
+        }
+        console.log(p1.action.call(p2, '操场上', '运动'))
+        console.log(isNaN(1 / 0));
+        console.log(1 in [1]);
+        const str = "qwbewrbbeqqbbbweebbbbqee";
+        console.log(str.match(/b*/g));
+
+        console.log(str.match(/b+/g));
+        console.log(str.match(/b{1,4}/g));
+        console.log(str.match(/b{1,9}/g));
+
+        console.log("a test")
+        var user5 = {
+            count5: 1,
+            getCount: function() {
+                return this.count5;
+            }
+        }
+        console.log(user5.getCount());
+        // console.log(func());
+
+        function foo(some) {
+            return this.a = some;
+        }
+        var obj1 = {};
+        var bar2 = foo.bind(obj1);
+        bar2(2);
+        console.log(obj1.a)
+    </script> -->
+</body>
+
+</html>

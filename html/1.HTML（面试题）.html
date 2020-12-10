@@ -1,0 +1,290 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML和HTML5面试题</title>
+</head>
+
+<body>
+    <h1>HTML和HTML5面试题</h1>
+    <!-- 
+        * 1. 谈谈你对Web标准的以及W3C的理解与认识
+            ~ 标签要闭合，英文小写，且不要嵌套乱用，用标签语义化来提高搜索的概率；
+            ~ 使用外链式的CSS和JS脚本，使结构、样式、行为分离；内容能被广泛的设备访问，代码精简，开发组件化，代码易维护、可复用、改版、升级更方便；
+
+        * 2. HTML和XHTML有什么区别？
+            ~ HTMl是一种基于Web网页的设计语言，XHTML是一个基于XML、语法严格、标准的设计语言。
+            ! 区别：XHTML元素必须正确的嵌套，元素必须关闭，标签必须小写，必须有根元素；HTML没有这些限制
+        
+        * 3. 严格模式和混杂模式如何区分？如何触发这两种模式？
+            ~ 严格模式就是浏览器根据Web标准去解析页面的方法，是一种严格要求的DTD，不允许使用任何表现层的语法；混杂模式一种向后兼容的解析方法；
+            ~ 触发方法：触发严格模式就是在HTML标签前声明正确的DTD；触发混杂模式可以在HTML文档开始时不声明DTD，或者在DOCTYPE前加入XML声明；
+        
+        * 4. 什么是静态网页？什么是动态网页？
+            ~ 静态网页就是没有数据交互的网页，没有数据库参与，没有服务器端数据的加载。(只有HTML和CSS、Javascript做成的网站)
+            ~ 动态网页是指有后台数据参与的网页，网页中的数据都是从数据库中提取的，需要有后台逻辑的支持。(JSP页面、ASP页面)
+
+        * 5. DOCTYPE有什么作用？区分混杂模式和严格模式有何意义？
+            ~ <!DOCTYPE>声明位于文档中的最前面，位于<html>标签之前，即告知浏览器的解析器，用什么文档类型规范来解析该文档。DOCTYPE的格式不正确或是不存在就会导致文档以混杂模式呈现；
+            ~ 严格区分两种模式的意义：严格模式的排版和JavaScript运行模式以该浏览器支持的最高标准运行。在混杂模式中，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止站点无法工作
+
+        * 6. 语义化的主要目的是什么？
+            ~ 用正确的标签做正确的事情；
+            & HTML语义化可以让页面的内容结构化，便于浏览器解析和搜索引擎解析，并提高代码的可维护度和可重用性。
+
+        * 7. 锚点的作用是什么，如何创建锚点？
+            ~ 锚点是文档中某行的一个记号，类似于标签，用于链接到文档中的某个位置。当定义锚点后，可以创建直接调至该锚点的链接，使用者无须不停滚动页面来寻找他们需要的信息。
+            ~ 在使用<a>元素创建锚点时，可以使用name属性为其命名(W3C规范)，对其他元素还可以使用id属性来命名
+
+        * 8. 列举常用的结构标签，并描述其作用。
+            ~ 结构标签专门用于标识页面的不同结构，相对于使用<div>元素而言，结构标签可以实现语义化的标签
+            & 常见的语义化标签有以下几种：
+                ^  1.<header>元素，用于定义文档的页眉；
+                ^  2.<nav>元素，用于定义页面的导航链接部分；
+                ^  3.<section>元素，用于定义文档中的节，表示文档中一个具体的组成部分；
+                ^  4.<article>元素，常用于定义独立于文档其他部分的内容。
+                ^  5.<footer>元素，常用于定义某区域的脚注信息；
+                ^  6.<aside>元素，常用于定义页面的一些额外组成部分，如广告栏
+
+        * 9. 超链接有哪些常见的表示方式？
+            ~ <a>元素用于创建超级链接，常见的形式有下面几种
+            ? 1.普通超级链接，<a href="">下载</a>
+            ? 2.下载链接，目标文档为下载资源；
+            ? 3.电子邮件链接，用于链接到E-mail,语法：<a href="mailo:1111@qq.com>"
+            ? 4.联系我们链接；
+            ? 5.空链接；
+            ? 6.锚点跳转，用于跳转页面中的某一个位置，常用于前端路由
+            ? 7.用于实现特定的代码功能，<a href="javascript:void(0);">...</a>
+
+        * 10. 你测试过哪些浏览器的功能，其内核是什么？
+            & IE(Trident)、Firefox(Gecko),Chrome(Blink)、Safari(Webkit)、Opera(Presto)
+
+        * 11. div是什么？在div出现之前用什么做网站布局？
+            ~ div时网站布局的盒子标签。div出现之前使用table布。因为table布局嵌套很多，网站加载慢，布局层级不清晰。
+
+        * 12. img标签上的title和alt属性有什么区别？
+            ~ title是为元素提供标题信息，即当光标悬浮在标签上后显示的内容；
+            ~ alt是图片的替换文案，当图片加载失败时，使用文字代替图片。
+        
+        * 13. 空元素有哪些？
+            ~ 《br、hr、img、input、link、meta》
+        
+        * 14. 简述一下src和href的区别
+            ~ src表示来源地址，用在img、script、iframe元素上。href表示超文本引用，用在link和a等元素上
+            ~ src的内容是页面中必不可少的一部分，表示引入；href的内容与该页面有相关联，表示引用。
+
+        * 15. 简述一下<strong><em>和<b><i>标签的区别：
+            ~ <strong>标签和<em>标签一样，都是强调文本，但strong的强调程度比较重；
+            ~ <em>是斜体强调标签，强调更加强烈，表示内容的强调点；
+                    ! 两者都是表达元素，即语义化元素；
+            
+            ~ <b><i>都是视觉元素，即非语义化元素，分别是无意义的加粗和无意义的斜体；
+
+        * 16. 在新窗口打开链接的方法是什么？
+            target=_blank;
+
+        * 17. HTML和CSS和JavaScript的干系是什么？
+            ! 1.HTML是网页内容的载体，是内容显示的框架。
+            ! 2.CSS 是网页内容的表现，就像对网页进行包装。比如字体，颜色，边框，用于改变网页外观的东西；
+            ! 3.javascript用来实现网页上的特效与交互。
+
+        * 18. 请说说iframe的有哪些优点？有哪些缺点？
+          ~ 优点：
+            ! 1.可以解决加载缓慢的第三方内容，如图标和广告等的加载问题；
+            ! 2.可以实现安全沙箱；
+            ! 3.可以并行加载脚本；
+          ~ 缺点：
+            ! 1.会阻塞主页面的Onload事件；
+            ! 2.iframe的内容即使为空，加载也需要时间；
+            ! 3.iframe元素没有语义；
+        
+        * 19. 说说你对语义化的理解
+            ~ 语义化标签有如下特点：
+             ! 1.丢失样式的时候还能够让页面呈现清晰的结构；
+             ! 2.SEO是指和搜索引擎建立良好的沟通，有助于爬虫抓取更多的有效信息。爬虫依赖标签来确定上下文和各个关键字的权重；
+             ! 3.其他设备解析以有意义的方式来渲染网页；
+             ! 4.在团队开发和维护中，语义化更具有可读性，是未来网页发展的重要方向。
+
+        * 20. HTML5有什么新特性？移除了哪些元素？
+            ~ 1.拖放API；
+            ~ 2.语义化更好的内容标签(header,nav,footer,aside,article,section);
+            ~ 3.音频、视频API；
+            ~ 4.画布(Canvas)API;
+            ~ 5.地理(Geolocation)API;
+            ~ 6.本地离线存储(localStorage),即长期存储数据，浏览器关闭后数据不丢失。
+            ~ 7.会话存储:即数据在浏览器关闭后自动删除。
+            ~ 8.表单控件包括：calender,date,time,email,url,search;
+            ~ 9.新技术包括：webworker,websocket,Geolocation.
+            ! 移除的元素：
+            ~ 1.纯表现的元素，包括：basefont,big,center,font,s,strike,tt,u;
+            ~ 2.对可用行产生负面影响的元素：frame,frameset,Noframes;
+        
+        * 21. 如何处理HTML5新标签的浏览器兼容性问题？
+            ? IE8,IE7,IE6支持使用document.createElement产生标签，利用这个特性让这些浏览器都支持HTML5新标签；
+            ? 浏览器支持这些新标签之后，还需要添加默认的样式(最好直接使用成熟的框架，最多的是html5shim 框架)，可以用IE hack引入该框架；
+
+        * 22.如何区分HTML和HTML5?
+            & 用DOCTYPE声明新增的结构元素和功能元素来区分他们。
+
+        * 23.HTML5是什么？
+            & HTML5是HTML的最新标准，他的主要目标是提供所有内容，而不需要任何额外的插件，如Flash,SilverLight,这些内容来自动画，视频、富GUI；
+            & HTML5是万维网联盟(W3C)和网络超文本应用技术工作组(WHATWG)合作输出的；
+        
+        * 24.新的HTML5文档类型和字符集是什么？
+            ^ 文档类型：<!DOCTYPE HTML>   字符集<meta charset='UTF-8'>
+
+        * 25.HTML5 Canvas元素有什么作用？
+            & Canvas 元素用于在网页上绘制图形，该元素标签的强大之处在于可以直接在HTML上进行图形操作；
+
+        * 26. HTML5新增了哪些功能的API？
+            & Media API,   Text Track API,    Application Cache API,    User Interaction,    Data Transfer API,    Command API,   Constraint Validation API ,   History API;
+        
+        * 27. HTML5离线存储有哪些？
+            & 1. localStorage,可长期存储数据，及浏览器关闭后数据不丢失；
+            & 2. sessionStorage,数据在浏览器关闭之后自动删除。
+        
+        * 28. HTML5的form如何关闭自动补全功能；
+            & 将不想要提示的form元素下的input的属性autocomplete设置为off;
+        
+        * 29. 如何在HTML5页面中嵌入音频？
+            & HTML5包含了嵌入音频的标准方式，支持的格式包括：MP3，Wav,Ogg等；
+
+        * 30. HTML5中引入了哪些新的表单属性？
+            & datalist|datetime|output|keygen|date|month|week|time|number|range|emailurl
+
+        * 31. 如何显示我们自己画的一个弹框？
+            ^ 在页面中单击一个按钮，弹出一个弹框，弹框自己先前先设置好，然后隐藏起来，onlick时间发生之后再显示出来；
+
+        * 32. 为什么THML5里面不需要DTD？如果不放入<!DOCTYPE HTML>标签，HTML5还会工作吗？
+            ^ HTML5中没有使用SGML或者XHTML，他是一个全新的类型，因此不需要DTD。对于HTML5，仅需要放置文档类型声明，让浏览器识别出HTML5文档即可。
+            ^ 不会工作，浏览器无法识别出他是HTML文档，同时HTML5的标签不能正常工作。
+
+        * 33. 哪些浏览器支持HTML5？
+            ^ 几乎所有浏览器都支持；
+
+        * 34. 本地存储和会话存储之间的区别是什么？
+            ^ 本地存储数据持续永久，但是会话存储在浏览器打开时有效，在浏览器关闭时，会话重置存储数据；
+
+        * 35. HTML5中的应用缓存是什么？
+            ^ 应用缓存的最终目的：帮助用户离线浏览页面---即当网络不可用时，打开的页面就是来自浏览器的缓存
+
+        * 36. 如果把HTML5看作一个开放平台，他的构建模块有哪些？
+            ^ 至少包括<nav>,<header>,<section>,<footer>
+
+        * 37. HTML5为什么只需要写<!doctype html>?
+            ^ HTML5不基于SGML，因此不需要对DTD进行引用，但是需要DOCTYPE来规范浏览器的行为(让浏览器按照他们的方式来运行).
+
+        * 38. HTML5应用程序缓存为应用带来了什么优势？
+            ^ 1.离线浏览；
+            ^ 2.速度，让已缓存资源加载的更快；
+            ^ 3.减少服务器负载，让浏览器将只下载服务器更新过的资源。
+
+        * 39. 与HTML4相比，HTML5废弃了哪些元素？
+            ^ frame,frameset,noframes,applet,big,center,basefont;
+
+        * 40. 请你说一下Web Worker和WebSocket的作用。
+            ^ Web Worker的作用：
+                ^ 1.通过worker=new Worker(url)加载一个Javascript文件，创建一个Worker，同时返回一个Worker实例。
+                ^ 2.用worker.postMessage(data)向Worker发送数据。
+                ^ 3.绑定worker.onmessage接受Workder发送过来的数据；
+                ^ 4.可以使用worker.terminate()终止一个Worker的执行。
+            ^ WebSocket的作用如下：
+                ^ 它是Web应用程序的传输协议，提供了双向的、按序到达的数据流。它是HTML5新增的协议，WebSocket的连接时持久的，它在客户端和服务器之间保持双工连接，
+                 ^ 服务器的更新可以及时推送到客户端，而不需要客户端以一定的时间间隔去轮询；
+
+        * 41. 如何实现浏览器内多个标签页之间的通信？
+            ! 在标签页之间，调用localstorage,cookies等数据存储，可以实现标签页之间的通信；
+
+        * 42. 如何让WebSocket兼容低版本浏览器？
+            ! 使用Adobe Flash Socket, ActiveX HTMLFile(IE),multipart编码发送XHR与长轮询发送XHR等，可以实现不支持WebSocket API的浏览器对WebSocket的兼容。
+
+        * 43. HTML5为浏览器提供了哪些数据存储方案？
+            ! 在较高版本的浏览器中，提供了sessionStorage和globalStorage。在HTML5中规范中，用localStorage取代globalStorage.
+            ! HTML5中的Web Storage包括两种存储方式，分别是sessionStorage和localStorage.======》》》他们具有相同的操作方法：setItem、getItem和removeItem;
+
+                ! sessionStorage用于在本地存储一个会话(session)的数据，这些数据只有同一个会话中的页面才能访问，当会话结束后，数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话层的存储；
+                ! localStorage用于持久化的本地存储，里面的数据永远不会过期，除非自动删除。
+        
+        * 44. localStorage和sessionStorage的区别？
+            ! sessionStorage用于本地存储一个会话中的数据，这些数据只有同一个页面擦能访问，当会话结束之后，数据也会随之销毁，因此sessionStorage不是一种持久化的本地存储，仅仅是会话层的存储；
+            ! localStorage用于持久本地存储，里面的数据永远不会过期，除非自动删除。
+
+        * 45. localStorage和cookie的区别是什么？
+            ! 区别：
+            ! 1. localStorage是为了更大容量的存储设计的，而cookie的大小是受限的，并且每次请求一个新页面时，cookie都会被发送过去，浪费了宽带，同时cookie还需要指定作用域，不可以跨域调用；
+            ! 2. localStorage拥有setItem、getItem、removeItem、clear等方法，cookie则需要前端开发者需要自己封装setCookie和getCookie.但是cookie也是不可或缺的，因为cookie的作用是与服务器进行交互；并且还是HTML5规范中的一部分。
+            
+        * 46. 请你谈谈cookie的特点？
+            ! cookie虽然为持久保存客户端数据提供了方便，分担了服务器存储的负担，但也有一定的局限性：
+            ! 1.每个特定的域名下最多生成20个cookie；
+            ! 2.IE6或更低版本最多有20个cookie;
+            ! 3.IE7和之后的版本最多可以有50个cookie;
+            ! 4.Firefox最多可以有50个cookie;
+            ! 5.Chrome和Safari没有做硬性限制。
+                ! IE和Opera会清理近期最少使用的cookie，Firefox会随机清理cookie,cookie最大为4096字节，为了兼容性，一般不能超过4095字节；
+        
+        * 47. cookie和session的区别是什么？
+            ! 区别：
+                ! 1.cookie数据存放在客户的浏览器上，session数据存放在服务器上；
+                ! 2.cookie不是很安全，别人可以分析存放在本地的cookie并进行cookie欺骗。考虑到安全问题应该使用session；
+                ! 3.session会在一定时间内保存在服务器上。当访问增多时，会占用较多服务器的资源。为了减轻服务器的负担，应该使用cookie分担一些；
+                ! 4.单个cookie保存的数据不能超过4KB，很多浏览器都限制一个站点最多20个cookie；
+            ! 所以我个人建议：可以将登陆信息存放在session上，其他信息可以存放在cookie中。
+
+        * 48. 什么是SVG？
+            ! SVG即可缩放矢量图形。他是基于文本的图形语言，使用文本、线条、点等来绘制图像，这使他轻便、显示迅速；
+
+        * 49. Canvas和SVG的区别？
+            ! 1.一旦Canvas绘制完成不能访问像素或操作他；任何使用SVG绘制的形状都能被记忆和操作，可以被浏览器再次显示；
+            ! 2.Canvas对绘制动画和游戏非常有利；SVG对创建图形(如：CAD)非常有利；
+            ! 3.因为不需要记住以后事情，所以Canvas运行更快；因为为了之后的操作，SVG需要记录坐标，所以运行比较缓慢；
+            ! 4.在Canvas中不能为绘制对象绑定相关事件；在SVG中可以为绘制对象绑定相关事件；
+            ! 5.Canvas绘制出的是位图，因此与分辨率有关；SVG绘制出的是矢量图，因为跟像素无关；
+
+        * 50. 如何使用Canvas和HTML5中的SVG画一个矩形？
+            ! 1.使用SVG绘制矩形的代码：
+                <svg xmlns="http://www.w3.org/2000/svg" version='1.1'>
+                    <rect style="fill:rgb(255,100,0);" height="200" width="400"></rect>
+                </svg>
+            ! 2.使用Canvas绘制矩形的代码：
+                <canvas id='myCanvas' width="500" height="500"></canvas>
+                var canvas=document.getElementById('myCanvas');
+                var ctx=canvas.getContext('2d');
+                ctx.rect(100,100,300,200);
+                ctx.fillStyle='pink'
+                ctx.fill();
+
+        * 51. 本地存储的数据有生命周期吗？
+            ? 本次存储的数据没有生命周期，他将一直存储数据，直到用户从浏览器中清除或者使用JavaScript代码删除；
+        
+        * 52. HTML5中如何实现应用缓存？
+            ? 1.首先，需要指定"manifest"文件，"manifest"文件帮助你定义缓存如何工作。----》CACHE MANIFEST
+            ? 2.创建一个缓存manifest文件后，在HTML页面中提供manifest链接。====》<html manifest="icketang.appcache">
+            ? 3.第一次运行以上文件时，他会添加到浏览器应用缓存中，在服务器中，页面从应用缓存中获取数据；
+
+        * 53.如何刷新浏览器的应用缓存？
+            ? 应用缓存通过变更"#"标签后的版本号来更新。
+
+        * 54. 应用缓存中的回退是什么？
+            ? 应用缓存的回退会帮助你指定在服务器不可访问时，显示某文件。例如在manifest文件中，如果用户输入了"/home",同时服务器不可到达，"404.html"文件应送达；
+
+        * 55. 应用缓存中网络命令的作用是什么？
+            ? 网络命令描述不需要缓存的文件；
+        
+        * 56.什么是WebSql?
+            ? WebSql是一个在浏览器客户端的结构关系数据库，是浏览器内的本地RDBMS(关系型数据库管理系统)，可以使用SQL查询。
+
+        * 57. WebSql是HTML5的一个规范吗？
+            ? 不是，这个规范是基于SQLite的。
+
+        * 58. HTML5如何实现跨域？
+            ? 在服务器端设置允许在其他域名下访问，例如允许所有域名访问一下内容
+            response.setHeader("Access-Control-Allow-Origin","*");
+            response.setHeader("Access-Control-Allow-Methods",'POST');
+            response.setHeader("Access-Control-Allow-Headers",'x-requested-width,content-type');
+     -->
+</body>
+
+</html>
