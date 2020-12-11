@@ -5,3 +5,4 @@
 |fixed|相对于浏览器窗口，固定定位|
 |absolute|绝对定位，相对于父元素(position不为static的元素进行偏移,脱离了正常的文档流|
 |sticky|能形成**动态固定**的效果，效果很像relative和fixed的结合，初始加载是relative位，页面滚动的时候就变成fixed定位|
+|inherit|从父元素中继承position的值|
