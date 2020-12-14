@@ -10,3 +10,13 @@
     - **阻止冒泡:** 调用event.stopPropagation阻止事件冒泡(IE中：event.cancelBubble=true);
 
 #### addEventListenter("第一个参数","第二个参数",false)就是事件冒泡，addEventListenter("第一个参数","第二个参数",true)就是事件捕获。，默认使用事件冒泡
+
+#### 不支持冒泡的事件
+- ①：focus
+- ②：blur
+- ③：mouseenter
+- ④：mouseleave
+- ⑤：load
+- ⑥：unload
+- ⑦：resize
+- **注意：妈(mouseenter)妈(mouseleave)不(blur)放(focus)心你(load,unloas)
