@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>品牌显示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-size: 16px;
+            text-align: center;
+        }
+        
+        a {
+            color: #04D;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: red;
+            text-decoration: underline;
+        }
+        
+        .box {
+            width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .box ul {
+            list-style: none;
+        }
+        
+        .box ul li {
+            display: block;
+            float: left;
+            width: 200px;
+            /* line-height: ; */
+        }
+        
+        .showmore {
+            clear: both;
+            text-align: center;
+            padding-top: 10px;
+        }
+        
+        .showmore a {
+            display: block;
+            width: 120px;
+            margin: 0 auto;
+            line-height: 24px;
+        }
+        
+        .showmore a span {
+            /* padding-left: 15px;
+            padding-right: 15px; */
+            /* text-align: center; */
+            background: greenyellow;
+            border: 1px solid red;
+            padding: 6px;
+        }
+        
+        .promoted a {
+            color: #F50;
+        }
+    </style>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            // 1. 选择从富士到漫步者的所有li:$category
+            var $text1 = $("li:gt(5):lt(10)");
+            var $category = $("li:gt(5):not(:last)");
+            // 2. 将他们隐藏
+            $category.hide();
+            // 3. 为.showmore 添加一个onclick响应函数(取消默认行为)
+            $(".showmore").click(function() {
+                // 4. 若$category是隐藏的，使用is()
+                if ($category.is(":hidden")) {
+                    // 4.1 $category显示
+                    $category.show();
+                    // 4.2 使"佳能","尼康"，"奥林巴斯"高亮显示，
+                    //添加.promoted的class
+                    $("li:contains('佳能'),li:contains('尼康'),li:contains('奥利巴斯')").addClass("promoted");
+                    // 4.3 .showmore>a>span的文字变为，显示精简品牌
+                    $(".showmore>a>span").text("显示精简品牌");
+                    // 4.4 .showmore>a>span的background变为up
+                    $(".showmore>a>span").css("background", "greenyellow");
+
+                } else {
+                    $category.hide();
+                    $("li").removeClass("promoted");
+                    $(".showmore>a>span").text("显示全部品牌");
+                }
+
+                return false;
+
+
+
+            })
+
+        });
+        let arr = [1, 2, 3, 4, 5, 6, 7];
+        for (let i = 0; i < arr.length / 2; i++) {
+            let temp = arr[i];
+            arr[i] = arr[arr.length - 1 - i];
+            arr[arr.length - 1 - i] = temp;
+        }
+        let arr2 = [1, 5, 2, 3, 4];
+        // 轮数
+        for (let i = 0; i < arr2.length - 1; i++) {
+            //  比较次数
+            for (let j = 0; j < arr2.length - 1 - i; j++) {
+                if (arr2[j] > arr2[j + 1]) {
+                    let tmp = arr2[j];
+                    arr2[j] = arr2[j + 1];
+                    arr2[j + 1] = tmp;
+                }
+            }
+        }
+        alert("冒泡排序结果：" + arr2);
+    </script>
+</head>
+
+<body>
+    <div class="box box1 box2" style="color:#222">hello</div>
+    <div class="box">
+        <ul>
+            <li><a href="#">佳能</a><i>(202012)</i></li>
+            <li><a href="#">索尼</a><i>(202012)</i></li>
+            <li><a href="#">三星</a><i>(202012)</i></li>
+            <li><a href="#">尼康</a><i>(202012)</i></li>
+            <li><a href="#">松下</a><i>(202012)</i></li>
+            <li><a href="#">卡西欧</a><i>(202012)</i></li>
+            <li><a href="#">富士</a><i>(202012)</i></li>
+            <li><a href="#">柯达</a><i>(202012)</i></li>
+            <li><a href="#">宾得</a><i>(202012)</i></li>
+            <li><a href="#">理光</a><i>(202012)</i></li>
+            <li><a href="#">奥利巴斯<i>(202012)</i></a></li>
+            <li><a href="#">小米</a><i>(202012)</i></li>
+            <li><a href="#">华为</a><i>(202012)</i></li>
+            <li><a href="#">漫步者</a><i>(22279)</i></li>
+        </ul>
+        <div class="showmore"><a href="more.html"><span>显示全部品牌</span></a></div>
+    </div>
+</body>
+
+</html>
