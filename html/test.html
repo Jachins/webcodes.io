@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>测试专用文件</title>
-    <style>
+    <!-- <style>
         p:first-child {
             color: red
         }
     </style>
     <link rel="stylesheet" href="css1.css">
-    <link rel="stylesheet" href="css2.css">
+    <link rel="stylesheet" href="css2.css"> -->
 </head>
 
 <body>
-    <style>
+    <!-- <style>
         .main {
             color: blue
         }
@@ -53,7 +53,7 @@
             console.log(targetURL);
             document.getElementById("iframePosition").src = targetURL;
         }
-    </script>
+    </script> -->
     <!-- 
     <div style="border:1px solid">
         <span>div span中第一个段落。</span>
@@ -221,6 +221,95 @@
         bar2(2);
         console.log(obj1.a)
     </script> -->
+    <script>
+        // var name = 'global'
+
+        // function a() {
+        //     console.log(name)
+        // }
+
+        // function b() {
+        //     var name = 'b';
+        //     a();
+        // }
+
+        // b(); //global
+
+        // function a() {
+        //     console.log('1');
+        // }
+
+        // a(); //2
+
+        // function a() {
+        //     console.log('2');
+        // }
+        // a(); //2
+
+        // // ************
+        // var a = function() {
+        //     console.log('1');
+        // }
+
+        // a(); //1
+        // var a = function() {
+        //     console.log('2');
+        // }
+        // a(); //2
+
+        // // // ********
+        // var name = 'global'
+
+        // function a() {
+        //     console.log(name);
+        // }
+        // a(); //global
+
+        // function b() {
+        //     var name = 'b';
+
+        //     function a() {
+        //         console.log(name);
+        //     }
+        //     a(); //b
+        // }
+
+        // // *******
+        // var name = 'global'
+
+        // function a() {
+        //     console.log(this.name);
+        // }
+        // a(); //global
+
+        // function b() {
+        //     var name = 'b';
+
+        //     function a() {
+        //         console.log(this.name);
+        //     }
+        //     a();
+        // }
+
+        // // ***
+        // function a() {
+        //     console.log('a')
+        //     b();
+        //     console.log('a end')
+        // }
+
+        // function b() {
+        //     console.log('b');
+        //     c();
+        //     console.log('b end')
+        // }
+
+        // function c() {
+        //     console.log('c');
+        // }
+
+        // a(); //a b c b end a end
+    </script>
 </body>
 
 </html>

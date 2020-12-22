@@ -60,3 +60,8 @@
             //The module code goes here；--require,exports,module通过形参传递给模块
         });
     ```
+
+#### ES6 Module规范
+- Javascript语言标准模块化方案，浏览器和服务器通用，功能主要由**export**和**import**两个命令组成；
+- **export**：用于定义模块的对外接口；
+- **import**：用于输入其他模块提供的功能；
