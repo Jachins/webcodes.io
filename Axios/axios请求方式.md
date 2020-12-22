@@ -46,6 +46,9 @@
 - 响应的数据格式**json/blob/document/arraybuffer/text/stream** :responseType:'json',
 
 #### 创建axios实例
+
+##### 创建axios实例的原因
+- 当我们从axios模块中导入对象时，使用的实例是默认的实例，给这些实例设置一些默认配置时，这些配置就固定下来了，在后续的开发中，某些配置可能不一样，这时候我们就需要创建新的实例，并传入属于该实例的配置信息。
 ```
     const instance1 = axios.create({
     baseURL: 'http://222.111.33.11:8000',
@@ -115,7 +118,7 @@
         return instance(config)
     }
 ```
-- **封装request模块**
+- **使用封装request模块**
 ```
     import {request} from './network/request';
     request({
